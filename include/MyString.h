@@ -1,6 +1,7 @@
 // Copyright 2024 by Contributors
-#ifndef _USERS_MACBOOK_DOCUMENTS_HSE_C_PROG_MYSTRING_INCLUDE_MYSTRING_H_
-#define _USERS_MACBOOK_DOCUMENTS_HSE_C_PROG_MYSTRING_INCLUDE_MYSTRING_H_
+#pragma once
+#ifndef INCLUDE_MYSTRING_H_
+#define INCLUDE_MYSTRING_H_
 
 #include <cstring>
 #include <iostream>
@@ -20,7 +21,26 @@ class MyString {
     size_t length() const;
     char* get() const;
 
+    MyString operator+(const MyString& other) const;
+    MyString operator-(const MyString& other) const;
+    MyString operator*(const uint32_t n) const;
+
+    MyString& operator=(const MyString& other);
+    MyString& operator=(MyString&& other) noexcept;
+
+    bool operator==(const MyString& other) const;
+    bool operator!=(const MyString& other) const;
+    bool operator>(const MyString& other) const;
+    bool operator<(const MyString& other) const;
+    bool operator>=(const MyString& other) const;
+    bool operator<=(const MyString& other) const;
+
+    MyString operator!() const;
+    char& operator[](const size_t index) const;
+    int64_t operator()(const MyString& substr) const;
+
+    friend std::istream& operator>>(std::istream& is, MyString& obj);
     friend std::ostream& operator<<(std::ostream& os, const MyString& obj);
 };
 
-#endif  // _USERS_MACBOOK_DOCUMENTS_HSE_C_PROG_MYSTRING_INCLUDE_MYSTRING_H_
+#endif  // INCLUDE_MYSTRING_H_
