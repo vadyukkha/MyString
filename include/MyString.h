@@ -8,39 +8,39 @@
 #include <string>
 
 class MyString {
- private:
-    char *myString;
-
  public:
-    explicit MyString(const char* input = nullptr);
-    explicit MyString(const std::string& input);
-    MyString(const MyString& other);
-    MyString(MyString&& other) noexcept;
-    ~MyString();
+  explicit MyString(const char* input = nullptr);
+  explicit MyString(const std::string& input);
+  MyString(const MyString& other);
+  MyString(MyString&& other) noexcept;
+  ~MyString();
 
-    size_t length() const;
-    char* get() const;
+  size_t length() const;
+  char* get() const;
 
-    MyString operator+(const MyString& other) const;
-    MyString operator-(const MyString& other) const;
-    MyString operator*(const uint32_t n) const;
+  MyString operator+(const MyString& other) const;
+  MyString operator-(const MyString& other) const;
+  MyString operator*(const uint32_t n) const;
 
-    MyString& operator=(const MyString& other);
-    MyString& operator=(MyString&& other) noexcept;
+  MyString& operator=(const MyString& other);
+  MyString& operator=(MyString&& other) noexcept;
 
-    bool operator==(const MyString& other) const;
-    bool operator!=(const MyString& other) const;
-    bool operator>(const MyString& other) const;
-    bool operator<(const MyString& other) const;
-    bool operator>=(const MyString& other) const;
-    bool operator<=(const MyString& other) const;
+  bool operator==(const MyString& other) const;
+  bool operator!=(const MyString& other) const;
+  bool operator>(const MyString& other) const;
+  bool operator<(const MyString& other) const;
+  bool operator>=(const MyString& other) const;
+  bool operator<=(const MyString& other) const;
 
-    MyString operator!() const;
-    char& operator[](const size_t index) const;
-    int64_t operator()(const MyString& substr) const;
+  MyString operator!() const;
+  char& operator[](const size_t index) const;
+  int64_t operator()(const MyString& substr) const;
 
-    friend std::istream& operator>>(std::istream& is, MyString& obj);
-    friend std::ostream& operator<<(std::ostream& os, const MyString& obj);
+  friend std::istream& operator>>(std::istream& is, MyString& obj);
+  friend std::ostream& operator<<(std::ostream& os, const MyString& obj);
+
+ private:
+  char *myString_;
 };
 
 #endif  // INCLUDE_MYSTRING_H_

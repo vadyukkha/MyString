@@ -8,7 +8,7 @@ help: # Show help for each of the Makefile recipes.
 	@printf "\n"
 
 MyString: MyString.cpp
-	g++ -std=c++17 MyString.cpp main.cpp -o main
+	g++ -std=c++17 -Iinclude MyString.cpp main.cpp -o main
 
 clean: # Delete all builded files
 	rm -f MyString

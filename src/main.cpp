@@ -2,61 +2,68 @@
 #include "../include/MyString.h"
 
 int main() {
-    MyString sToMove("move");  // const char*
-    MyString s0("abc");  // const char*
-    std::string str = "Hello,";
+    MyString my_string_to_move("move");  // const char*
+    MyString my_string_abc("abc");  // const char*
+    std::string string_hello = "Hello,";
 
-    MyString s1(str);  // std::string
-    std::cout << s1 << std::endl;  // Hello,
+    MyString my_string_hello(string_hello);  // std::string
+    std::cout << my_string_hello << std::endl;  // Hello,
 
-    MyString s2("world!");
-    MyString s12423(std::move(sToMove));  // move-constructor
-    std::cout << s12423 << std::endl;  // move
+    MyString my_string_world("world!");
+    MyString my_string_moved(std::move(my_string_to_move));  // move-constructor
+    std::cout << my_string_moved << std::endl;  // move
 
-    MyString s12443(s0);  // copy-constructor
-    std::cout << s12443 << std::endl;  // abc
+    MyString my_string_copy(my_string_abc);  // copy-constructor
+    std::cout << my_string_copy << std::endl;  // abc
 
-    MyString s3;
-    s3 = s1 + s2;
+    MyString my_string_hello_world;
+    my_string_hello_world = my_string_hello + my_string_world;
 
-    std::cout << s3 << std::endl;  // Hello,world!
-    std::cout << s3.length() << std::endl;  // 12
-    std::cout << s3((MyString)"ll") << std::endl;  // 2
-    std::cout << s3((MyString)"mama") << std::endl;  // -1
+    std::cout << my_string_hello_world << std::endl;  // Hello,world!
+    std::cout << my_string_hello_world.length() << std::endl;  // 12
+    std::cout << my_string_hello_world((MyString)"ll") << std::endl;  // 2
+    std::cout << my_string_hello_world((MyString)"mama") << std::endl;  // -1
 
-    MyString s6("abbaxxca");
-    MyString s4 = s0 * 3;
-    MyString s104 = s6 - s0;
+    MyString my_string_abbxaxca("abbxaxca");
+    MyString my_string_abcabcabc = my_string_abc * 3;
+    MyString my_string_xx = my_string_abbxaxca - my_string_abc;
 
-    std::cout << "s6 - s0: " << s104 << std::endl;  // xx
-    std::cout << "s1 * 3: " << s4 << std::endl;  // abcabcabc
+    std::cout << "abbxaxca - abc: " << my_string_xx << std::endl;  // xx
+    std::cout << "abc * 3: "
+        << my_string_abcabcabc << std::endl;  // abcabcabc
 
-    std::cout << "s1 == s2: " << (s1 == s2) << std::endl;  // false
-    std::cout << "s1 != s2: " << (s1 != s2) << std::endl;  // true
-    std::cout << "s1 > s2: " << (s1 > s2) << std::endl;    // false
-    std::cout << "s1 < s2: " << (s1 < s2) << std::endl;    // true
-    std::cout << "s1 >= s2: " << (s1 >= s2) << std::endl;  // false
-    std::cout << "s1 <= s2: " << (s1 <= s2) << std::endl;  // true
+    std::cout << "hello == world: "
+        << (my_string_hello == my_string_world) << std::endl;  // false
+    std::cout << "hello != world: "
+        << (my_string_hello != my_string_world) << std::endl;  // true
+    std::cout << "hello > world: "
+        << (my_string_hello > my_string_world) << std::endl;   // false
+    std::cout << "hello < world: "
+        << (my_string_hello < my_string_world) << std::endl;   // true
+    std::cout << "hello >= world: "
+        << (my_string_hello >= my_string_world) << std::endl;  // false
+    std::cout << "hello <= world: "
+        << (my_string_hello <= my_string_world) << std::endl;  // true
 
-    std::cout << "!s0: " << !s0 << std::endl;  // ABC
-    std::cout << "s0[0]: " << s0[0] << std::endl;  // a
+    std::cout << "!abc: " << !my_string_abc << std::endl;  // ABC
+    std::cout << "abc[0]: " << my_string_abc[0] << std::endl;  // a
 
-    MyString s5;
+    MyString my_string_input;
     std::cout << "Enter a string: ";
-    std::cin >> s5;
-    std::cout << "s5: " << s5 << std::endl;
+    std::cin >> my_string_input;
+    std::cout << "output: " << my_string_input << std::endl;
 
-    MyString s123706;
-    s123706 = (MyString)"blablabla";
-    std::cout << s123706 << std::endl;  // blablabla
+    MyString my_string_blablabla;
+    my_string_blablabla = (MyString)"blablabla";
+    std::cout << my_string_blablabla << std::endl;  // blablabla
 
-    std::cout << s0.get() << std::endl;  // abc
+    std::cout << my_string_abc.get() << std::endl;  // abc
 
-    MyString str1 = (MyString)"Meow";
-    MyString str2 = (MyString)"Foo";
-    MyString str3 = (MyString)"Woops";
-    str1 = str2 + str3 + (MyString)"Baz";
+    MyString my_string_meow = (MyString)"Meow";
+    MyString my_string_foo = (MyString)"Foo";
+    MyString my_string_woops = (MyString)"Woops";
+    my_string_meow = my_string_foo + my_string_woops + (MyString)"Baz";
 
-    std::cout << str1  << std::endl;
-    return 0;
+    std::cout << my_string_meow  << std::endl;  // FooWoopsBaz
+    return EXIT_SUCCESS;
 }
